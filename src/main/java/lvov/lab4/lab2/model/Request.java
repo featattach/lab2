@@ -13,14 +13,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Request {
-    @NotBlank
+    @NotBlank(message = "Не заполнено поле uid")
     @Size(max = 32, message = "uid не более 32 символов")
     private String uid;
-    @NotBlank
+    @NotBlank(message = "не заполнено поле operationUid")
     @Size(max = 32, message = "uid не более 32 символов")
     private String operationUid;
-    private String systemName;
-    @NotBlank
+    private Systems systemName;
+    @NotBlank(message = "нет системного времни")
     private String systemTime;
     private String source;
 
