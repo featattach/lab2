@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lvov.lab4</groupId>
-	<artifactId>lab2</artifactId>
+	<artifactId>Lab4FirstService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lab2</name>
 	<description>lab2</description>
