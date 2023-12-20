@@ -38,7 +38,8 @@ public class MyController {
     @PostMapping(value = "/feedback")
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request, BindingResult bindingResult) {
         log.info("request: {}", request);
-
+// Записываем время получения исходного запроса в Сервисе 2
+        long startTime = System.currentTimeMillis();
 
         Response response = Response.builder()
                 .uid(request.getUid())
@@ -74,6 +75,13 @@ public class MyController {
             response.setErrorMessage(ErrorMessages.VALIDATION);
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        long endTime =System.currentTimeMillis();
+        log.info("Time taken to process original request: {} ms", endTime - startTime);
+
+        startTime = System.currentTimeMillis();
+        long endTimeModified = System.currentTimeMillis();
+        log.info("Time taken to process modified request: {} ms", endTimeModified - startTime);
+
         Response modifiedResponse = modifyResponseService.modify(response);
         log.info("Sending response: {}", modifiedResponse);
         return new ResponseEntity<>(modifyResponseService.modify(response), HttpStatus.OK);

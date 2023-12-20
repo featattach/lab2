@@ -19,7 +19,7 @@ public class Request {
     @NotBlank(message = "не заполнено поле operationUid")
     @Size(max = 32, message = "uid не более 32 символов")
     private String operationUid;
-    private Systems systemName;
+    private String  systemName;
     @NotBlank(message = "нет системного времни")
     private String systemTime;
     private String source;
