@@ -46,4 +46,6 @@ public class Request {
                 '}';
     }
 
+    public void setSystemName(String s) {
+    }
 }

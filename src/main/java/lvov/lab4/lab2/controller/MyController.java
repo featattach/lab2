@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import lvov.lab4.lab2.exception.UnsupportedCodeException;
 import lvov.lab4.lab2.exception.ValidationFailedException;
 import lvov.lab4.lab2.model.*;
+import lvov.lab4.lab2.service.ModifyRequestService;
 import lvov.lab4.lab2.service.ModifyResponseService;
 import lvov.lab4.lab2.service.ValidationService;
 import lvov.lab4.lab2.util.DateTimeUtil;
@@ -26,12 +27,16 @@ public class MyController {
 
     private final ModifyResponseService modifyResponseService;
     private final ValidationService validationService;
+    private final ModifyRequestService modifyRequestService;
 
     @Autowired
     public MyController(ValidationService validationService,
-                        @Qualifier("ModifySystemTimeResponseService") ModifyResponseService modifyResponseService) {
+                        @Qualifier("ModifySystemTimeResponseService")
+                        ModifyResponseService modifyResponseService,
+                        ModifyRequestService modifyRequestService) {
         this.validationService = validationService;
         this.modifyResponseService = modifyResponseService;
+        this.modifyRequestService = modifyRequestService;
 
     }
 
