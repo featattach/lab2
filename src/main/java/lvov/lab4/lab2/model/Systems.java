@@ -14,12 +14,5 @@ public enum Systems {
     public String getDescription() {
         return description;
     }
-    public static Systems fromString(String value) {
-        for (Systems system : values()) {
-            if (system.name().equalsIgnoreCase(value)) {
-                return system;
-            }
-        }
-        return null;
-    }
+
 }

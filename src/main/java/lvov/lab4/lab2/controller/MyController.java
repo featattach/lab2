@@ -34,11 +34,14 @@ public class MyController {
                         @Qualifier("ModifySystemTimeResponseService")
                         ModifyResponseService modifyResponseService,
                         ModifyRequestService modifyRequestService) {
+
+
         this.validationService = validationService;
         this.modifyResponseService = modifyResponseService;
         this.modifyRequestService = modifyRequestService;
-
     }
+
+
 
     @PostMapping(value = "/feedback")
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request, BindingResult bindingResult) {
@@ -79,8 +82,8 @@ public class MyController {
             response.setErrorMessage(ErrorMessages.VALIDATION);
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        Response modifiedResponse = modifyResponseService.modify(response);
-        log.info("Sending response: {}", modifiedResponse);
+        modifyResponseService.modify(response);
+        modifyRequestService.modify(request);
         return new ResponseEntity<>(modifyResponseService.modify(response), HttpStatus.OK);
     }
 }
