@@ -1,4 +1,4 @@
-package lvov.lab4.lab2.exception;
+package lvov.lab4.exception;
 
 public class UnsupportedCodeException extends Exception {
     public UnsupportedCodeException(String message) {

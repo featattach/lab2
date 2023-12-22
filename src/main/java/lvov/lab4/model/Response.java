@@ -1,4 +1,4 @@
-package lvov.lab4.lab2.model;
+package lvov.lab4.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +11,7 @@ public class Response {
     private String operationUid;
     private String systemTime;
     private Codes code;
+    private Double annualBonus;
     private ErrorCodes errorCode;
     private ErrorMessages errorMessage;
 

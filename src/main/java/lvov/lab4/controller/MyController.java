@@ -1,14 +1,14 @@
-package lvov.lab4.lab2.controller;
+package lvov.lab4.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import lvov.lab4.lab2.exception.UnsupportedCodeException;
-import lvov.lab4.lab2.exception.ValidationFailedException;
-import lvov.lab4.lab2.model.*;
-import lvov.lab4.lab2.service.ModifyRequestService;
-import lvov.lab4.lab2.service.ModifyResponseService;
-import lvov.lab4.lab2.service.ValidationService;
-import lvov.lab4.lab2.util.DateTimeUtil;
+import lvov.lab4.exception.UnsupportedCodeException;
+import lvov.lab4.exception.ValidationFailedException;
+import lvov.lab4.model.*;
+import lvov.lab4.service.ModifyRequestService;
+import lvov.lab4.service.ModifyResponseService;
+import lvov.lab4.service.ValidationService;
+import lvov.lab4.util.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -24,21 +24,26 @@ import java.util.Date;
 @RestController
 public class MyController {
 
-
+    private Double calculateAnnualBonus(Request request) {
+        return annualBonusService.calculate(request.getPositions(), request.getSalary(), request.getBonus(), request.getWorkDays());
+    }
     private final ModifyResponseService modifyResponseService;
     private final ValidationService validationService;
     private final ModifyRequestService modifyRequestService;
+    private final AnnualBonusService annualBonusService;
 
     @Autowired
     public MyController(ValidationService validationService,
                         @Qualifier("ModifySystemTimeResponseService")
                         ModifyResponseService modifyResponseService,
-                        ModifyRequestService modifyRequestService) {
+                        ModifyRequestService modifyRequestService,
+                        AnnualBonusService annualBonusService) {
 
 
         this.validationService = validationService;
         this.modifyResponseService = modifyResponseService;
         this.modifyRequestService = modifyRequestService;
+        this.annualBonusService = annualBonusService;
     }
 
 
@@ -55,6 +60,7 @@ public class MyController {
                 .code(Codes.SUCCESS)
                 .errorCode(ErrorCodes.EMPTY)
                 .errorMessage(ErrorMessages.EMPTY)
+                .annualBonus(calculateAnnualBonus(request))
                 .build();
         try {
             validationService.isValid(bindingResult);

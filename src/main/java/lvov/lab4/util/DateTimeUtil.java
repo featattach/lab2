@@ -1,4 +1,4 @@
-package lvov.lab4.lab2.util;
+package lvov.lab4.util;
 
 import java.text.SimpleDateFormat;
 

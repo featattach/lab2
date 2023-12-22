@@ -1,4 +1,4 @@
-package lvov.lab4.lab2.model;
+package lvov.lab4.model;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +23,10 @@ public class Request {
     @NotBlank(message = "нет системного времни")
     private String systemTime;
     private String source;
+    private Positions positions;
+    private Double salary;
+    private Double bonus;
+    private int workDays;
 
     @Min(value = 1, message = "communicationId должен быть не менее 1")
     @Max(value = 100000, message = "communicationId должен быть не более 100000")

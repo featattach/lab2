@@ -1,4 +1,4 @@
-package lvov.lab4.lab2;
+package lvov.lab4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

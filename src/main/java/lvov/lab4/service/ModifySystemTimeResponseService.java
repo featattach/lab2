@@ -1,7 +1,7 @@
-package lvov.lab4.lab2.service;
+package lvov.lab4.service;
 
-import lvov.lab4.lab2.model.Response;
-import lvov.lab4.lab2.util.DateTimeUtil;
+import lvov.lab4.model.Response;
+import lvov.lab4.util.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

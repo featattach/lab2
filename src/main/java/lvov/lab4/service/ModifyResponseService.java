@@ -1,6 +1,6 @@
-package lvov.lab4.lab2.service;
+package lvov.lab4.service;
 
-import lvov.lab4.lab2.model.Response;
+import lvov.lab4.model.Response;
 import org.springframework.stereotype.Service;
 
 @Service

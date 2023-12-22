@@ -1,4 +1,4 @@
-package lvov.lab4.lab2.model;
+package lvov.lab4.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
