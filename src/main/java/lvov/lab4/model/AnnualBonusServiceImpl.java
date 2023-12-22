@@ -16,7 +16,7 @@ public class AnnualBonusServiceImpl implements AnnualBonusService {
     public double calculateQuarterlyBonus(Positions positions, double salary, double bonus, int workDays) {
         if (positions.isManager()) {
             // Квартальный коэффициент для менеджеров и управленцев
-            double quarterlyCoefficient = 0.2; // Пример, вы можете задать свое значение
+            double quarterlyCoefficient = 0.2;
             return salary * bonus * 365 * positions.getPositionCoefficient() * quarterlyCoefficient / workDays;
         } else {
             // Для всех остальных возвращаем 0
