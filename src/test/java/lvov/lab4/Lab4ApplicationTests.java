@@ -1,10 +1,10 @@
-package lvov.lab4.lab2;
+package lvov.lab4;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Lab2ApplicationTests {
+class Lab4ApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,6 +1,6 @@
-package lvov.lab4.lab2.service;
+package lvov.lab4.service;
 
-import lvov.lab4.lab2.exception.ValidationFailedException;
+import lvov.lab4.exception.ValidationFailedException;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 @Service
